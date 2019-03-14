@@ -1,0 +1,10 @@
+E:\Dev\Symphony\Net standard\TextAnalyser\TextAnalyser\bin\Debug\TextAnalyser.dll
+E:\Dev\Symphony\Net standard\TextAnalyser\TextAnalyser\bin\Debug\TextAnalyser.pdb
+E:\Dev\Symphony\Net standard\TextAnalyser\TextAnalyser\obj\Debug\BinarySearchTree.csprojResolveAssemblyReference.cache
+E:\Dev\Symphony\Net standard\TextAnalyser\TextAnalyser\obj\Debug\TextAnalyser.dll
+E:\Dev\Symphony\Net standard\TextAnalyser\TextAnalyser\obj\Debug\TextAnalyser.pdb
+C:\Users\nicolasn\dev\test\TextAnalyser\TextAnalyser\bin\Debug\TextAnalyser.dll
+C:\Users\nicolasn\dev\test\TextAnalyser\TextAnalyser\bin\Debug\TextAnalyser.pdb
+C:\Users\nicolasn\dev\test\TextAnalyser\TextAnalyser\obj\Debug\BinarySearchTree.csprojResolveAssemblyReference.cache
+C:\Users\nicolasn\dev\test\TextAnalyser\TextAnalyser\obj\Debug\TextAnalyser.dll
+C:\Users\nicolasn\dev\test\TextAnalyser\TextAnalyser\obj\Debug\TextAnalyser.pdb

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextAnalyserLib", "TextAnalyser\TextAnalyserLib.csproj", "{CF55FC46-30ED-41A7-B9F5-E7E189C34640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{9DC81FAD-3D8B-47FB-A3DB-4A4C3148739C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{07819B81-0CE9-4ABA-BF26-2F9CB7C16328}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF55FC46-30ED-41A7-B9F5-E7E189C34640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF55FC46-30ED-41A7-B9F5-E7E189C34640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF55FC46-30ED-41A7-B9F5-E7E189C34640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF55FC46-30ED-41A7-B9F5-E7E189C34640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DC81FAD-3D8B-47FB-A3DB-4A4C3148739C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DC81FAD-3D8B-47FB-A3DB-4A4C3148739C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DC81FAD-3D8B-47FB-A3DB-4A4C3148739C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DC81FAD-3D8B-47FB-A3DB-4A4C3148739C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07819B81-0CE9-4ABA-BF26-2F9CB7C16328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07819B81-0CE9-4ABA-BF26-2F9CB7C16328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07819B81-0CE9-4ABA-BF26-2F9CB7C16328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07819B81-0CE9-4ABA-BF26-2F9CB7C16328}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
