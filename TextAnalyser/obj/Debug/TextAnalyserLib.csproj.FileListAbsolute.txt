@@ -1,5 +1,0 @@
-C:\Users\nicolasn\dev\test\Symphony\Final\TextAnalyser\TextAnalyser\bin\Debug\TextAnalyser.dll
-C:\Users\nicolasn\dev\test\Symphony\Final\TextAnalyser\TextAnalyser\bin\Debug\TextAnalyser.pdb
-C:\Users\nicolasn\dev\test\Symphony\Final\TextAnalyser\TextAnalyser\obj\Debug\TextAnalyserLib.csprojResolveAssemblyReference.cache
-C:\Users\nicolasn\dev\test\Symphony\Final\TextAnalyser\TextAnalyser\obj\Debug\TextAnalyser.dll
-C:\Users\nicolasn\dev\test\Symphony\Final\TextAnalyser\TextAnalyser\obj\Debug\TextAnalyser.pdb
