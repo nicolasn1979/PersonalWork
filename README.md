@@ -1,11 +1,11 @@
 # TextAnalyserLib
 
 Welcome to the TextAnalyserLib repository.
-TextAnalyserLib provides a light implementation of "In Order" Traveral of Binary Search and Threaded Trees. 
+TextAnalyserLib provides an basic implementation of Insertion, and "In Order" Traversal of Binary Search/Threaded Trees based on a Custom String Comparer. This Library was made as an 'Homework' and several updates could be done such as use of generic types, add search/delete methods...
 TextAnalyserLib is written in C# and targets the .NET Framework.
 
 ## Using
-The documentation for TreeLib is located at www.foobar.com
+No documentation yet, but the code is fairly self explanatory and commented
 
 ## Contributing
 Contributions are welcome. Please contact me if you find a bug, have a feature request.
