@@ -8,7 +8,7 @@ TextAnalyserLib is written in C# and targets the .NET Framework.
 The documentation for TreeLib is located at www.foobar.com
 
 ## Contributing
-Contributions are welcome. Please contact me if you find a bug, have a feature request, or want to create a pull request.
+Contributions are welcome. Please contact me if you find a bug, have a feature request.
 
 ## Building
 The TextAnalyserLib solution is builded with Visual Studio 2017. Open the solution file located at TextAnalyser\TextAnalyser.sln.There are several projects contained therein:
