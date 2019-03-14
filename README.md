@@ -5,7 +5,7 @@ TextAnalyserLib provides a light implementation of "In Order" Traveral of Binary
 TextAnalyserLib is written in C# and targets the .NET Framework.
 
 Using
-The documentation for TreeLib is located at www.
+The documentation for TreeLib is located at www.foobar.com
 
 Contributing
 Contributions are welcome. Please contact me if you find a bug, have a feature request, or want to create a pull request.
