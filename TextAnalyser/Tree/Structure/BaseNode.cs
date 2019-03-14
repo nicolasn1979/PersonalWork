@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace TextAnalyser.Structure
 {
     public class BaseNode
@@ -35,6 +37,13 @@ namespace TextAnalyser.Structure
             {
                 count = value;
             }
+        }
+        #endregion
+
+        #region Methods
+        public override String ToString()
+        {
+            return $"{count} {item.ToString()}";
         }
         #endregion
     }

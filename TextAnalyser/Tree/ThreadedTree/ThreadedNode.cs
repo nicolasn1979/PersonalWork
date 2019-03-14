@@ -56,12 +56,5 @@ namespace TextAnalyser.ThreadedTree
             right = null;
         }
         #endregion
-
-        #region Methods
-        public override String ToString()
-        {
-            return $"{count} {item.ToString()}";
-        }
-        #endregion
     }
 }
