@@ -1,6 +1,6 @@
 # TextAnalyserLib
 
-Welcome to the TextAnalyserLib repository
+Welcome to the TextAnalyserLib repository.
 TextAnalyserLib provides a light implementation of "In Order" Traveral of Binary Search and Threaded Trees. 
 TextAnalyserLib is written in C# and targets the .NET Framework.
 
