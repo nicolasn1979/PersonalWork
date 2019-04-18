@@ -40,15 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tree\Structure\BaseNode.cs" />
-    <Compile Include="Tree\Structure\BaseTree.cs" />
+    <Compile Include="Tree\ThreadedTree\IThreadedNode.cs" />
+    <Compile Include="Tree\ThreadedTree\ThreadedTree.cs" />
+    <Compile Include="Tree\TreeStructure\BaseNode.cs" />
+    <Compile Include="Tree\TreeStructure\BaseTree.cs" />
     <Compile Include="Tree\BinarySearchTree\BinarySearchTree.cs" />
     <Compile Include="Tree\ThreadedTree\ThreadedNode.cs" />
-    <Compile Include="Tree\ThreadedTree\ThreadedTree.cs" />
+    <Compile Include="Tree\TreeStructure\INode.cs" />
     <Compile Include="Type\Item.cs" />
-    <Compile Include="Tree\Structure\ITree.cs" />
+    <Compile Include="Structure\IDataStructure.cs" />
     <Compile Include="Type\LengthThenAsciiComparer.cs" />
-    <Compile Include="Tree\BinarySearchTree\BinarySearchNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

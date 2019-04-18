@@ -1,22 +1,24 @@
-﻿using TextAnalyser.Structure;
+﻿using System.Collections.Generic;
+using TextAnalyser.Tree.ThreadedTree;
+using TextAnalyser.TreeStructure;
 
 namespace TextAnalyser.ThreadedTree
 {
-    public class ThreadedTree : BaseTree
+    public class ThreadedTree<T> : BaseTree<T>
     {
-        #region Constructor
-        public ThreadedTree()
-        {            
+
+        public ThreadedTree(IComparer<T> comp) : base(comp)
+        {
+
         }
-        #endregion
 
         /// <summary>
         /// Insert an Item in the Tree
         /// </summary>
         /// <param name="i">The Item to be inserted</param>
-        public override void Insert(Item i)
+        public override void Insert(T i)
         {
-            Insert((ThreadedNode)root, i);
+            Insert(root as IThreadedNode<T>, i);
         }
         
         /// <summary>
@@ -28,7 +30,7 @@ namespace TextAnalyser.ThreadedTree
             report.Clear();
 
             // Let's traverse
-            InOrderTraversal((ThreadedNode)root);
+            InOrderTraversal(root as IThreadedNode<T>);
         }
 
         /// <summary>
@@ -37,69 +39,68 @@ namespace TextAnalyser.ThreadedTree
         /// <param name="node">The node </param>
         /// <param name="newItem">The Item to be inserted</param>
         /// <returns>The created node</returns>
-        private void Insert(ThreadedNode node, Item newItem)
-        {
-            ThreadedNode current = node;
-            ThreadedNode parent = null;
-
+        private void Insert(IThreadedNode<T> node, T newItem)
+        {           
             if (root == null)
             {
-                ThreadedNode newNode = new ThreadedNode(newItem);
+                IThreadedNode<T> newNode = new ThreadedNode<T>(newItem);
                 root = newNode;
                 return;
             }
 
-            while(current != null)
+            IThreadedNode<T> current = node;
+            IThreadedNode<T> parent = null;
+            while (current != null)
             {
                 // save parent
                 parent = current;
 
                 // Compare both items using our custom comparer
-                int result = comparer.Compare(current.Item, newItem);
+                int result = comparer.Compare(current.GetItem(), newItem);
 
                 // the same item, increment count
                 if (result == 0)
                 {
-                    current.Count++;
+                    current.IncrementCount();
                     return;
                 }
 
                 // item goes to left
                 else if (result > 0)
                 {
-                    current = current.Left;
+                    current = current.GetLeft() as IThreadedNode<T>;
 
                     // we found the place to insert the new Node
                     if (current == null)
                     {
-                        ThreadedNode newNode = new ThreadedNode(newItem);
-                        parent.Left = newNode;
-                        newNode.Right = parent;
-                        newNode.RightThread = true;
+                        IThreadedNode<T> newNode = new ThreadedNode<T>(newItem);
+                        parent.SetLeft(newNode);
+                        newNode.SetRight(parent);
+                        newNode.SetRightThread(true);
                         return;
                     }
                 }
                 // item goes to right
                 else
                 {
-                    if (!current.RightThread)
+                    if (!current.GetRightThread())
                     {
-                        current = current.Right;
+                        current = (IThreadedNode<T>)current.GetRight();
                         if (current == null)
                         {
-                            ThreadedNode newNode = new ThreadedNode(newItem);
-                            parent.Right = newNode;
+                            IThreadedNode<T> newNode = new ThreadedNode<T>(newItem);
+                            parent.SetRight(newNode);
                             return;
                         }
                     }
                     else
                     {
-                        ThreadedNode tmp = current.Right;
-                        ThreadedNode newNode = new ThreadedNode(newItem);
-                        current.Right = newNode;
-                        current.RightThread = false;
-                        newNode.Right = tmp;
-                        newNode.RightThread = true;
+                        IThreadedNode<T> tmp = current.GetRight() as IThreadedNode<T>;
+                        IThreadedNode<T> newNode = new ThreadedNode<T>(newItem);
+                        current.SetRight(newNode);
+                        current.SetRightThread(false);
+                        newNode.SetRight(tmp);
+                        newNode.SetRightThread(true);
                         return;
                     }
                 }
@@ -111,13 +112,13 @@ namespace TextAnalyser.ThreadedTree
         /// </summary>
         /// <param name="node">The current Node</param>
         /// <returns></returns>
-        private ThreadedNode LeftMostNode(ThreadedNode node)
+        private IThreadedNode<T> LeftMostNode(IThreadedNode<T> node)
         {
             if (node == null)
                 return null;
 
-            while (node.Left != null)
-                node = node.Left;
+            while (node.GetLeft() != null)
+                node = node.GetLeft() as IThreadedNode<T>;
 
             return node;
         }
@@ -125,23 +126,23 @@ namespace TextAnalyser.ThreadedTree
         /// <summary>
         /// Traverse the Tree using the Threaded Node relations
         /// </summary>
-        private void InOrderTraversal(ThreadedNode node)
+        private void InOrderTraversal(IThreadedNode<T> node)
         {
-            ThreadedNode current = LeftMostNode(node);
+            IThreadedNode<T> current = LeftMostNode(node);
             while (current != null)
             {
                 report.Add(current);
 
                 // right node points to a inorder successor
-                if (current.RightThread)
+                if (current.GetRightThread())
                 {
-                    current = current.Right;
+                    current = current.GetRight() as IThreadedNode<T>;
                 }
 
                 // find the leftiest Node of current right Node
                 else
                 {
-                    current = LeftMostNode(current.Right);
+                    current = LeftMostNode(current.GetRight() as IThreadedNode<T>);
                 }
             }
 

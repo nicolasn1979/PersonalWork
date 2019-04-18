@@ -1,4 +1,7 @@
-﻿using TextAnalyser.Structure;
+﻿using System.Collections.Generic;
+using TextAnalyser.Structure;
+using TextAnalyser.Tree.TreeStructure;
+using TextAnalyser.TreeStructure;
 
 namespace TextAnalyser.BinarySearchTree
 {
@@ -6,12 +9,12 @@ namespace TextAnalyser.BinarySearchTree
     /// <summary>
     /// A binary Search Tree Data representation
     /// </summary>
-    public class BinarySearchTree : BaseTree
+    public class BinarySearchTree<T> : BaseTree<T>
     {
         #region Constructor
-        public BinarySearchTree()
+        public BinarySearchTree(IComparer<T> comp) : base(comp)
         {
-
+            
         }
         #endregion
 
@@ -20,9 +23,9 @@ namespace TextAnalyser.BinarySearchTree
         /// Insert an Item in the Tree
         /// </summary>
         /// <param name="i">The Item to be inserted</param>
-        public override void Insert(Item i)
+        public override void Insert(T i)
         {
-            root = Insert((BinarySearchNode)root, i);
+            root = Insert(root, i);
         }
         
         /// <summary>
@@ -34,7 +37,7 @@ namespace TextAnalyser.BinarySearchTree
             report.Clear();
 
             // Let's traverse
-            InOrderTraversal((BinarySearchNode)root);
+            InOrderTraversal(root);
         }
 
         #endregion 
@@ -45,33 +48,33 @@ namespace TextAnalyser.BinarySearchTree
         /// <param name="node">The node </param>
         /// <param name="i">The Item to be inserted</param>
         /// <returns>The created node</returns>
-        private BinarySearchNode Insert(BinarySearchNode node, Item i)
+        private INode<T> Insert(INode<T> node, T i)
         {
             // empty tree, create the new node
             if (node == null)
             {
-                BinarySearchNode newNode = new BinarySearchNode(i);
+                BaseNode<T> newNode = new BaseNode<T>(i);
                 return newNode;
             }
 
             // Compare both items using our custom comparer
-            int result = comparer.Compare(node.Item, i);
+            int result = comparer.Compare(node.GetItem(), i);
 
             // the same item, increment count
             if (result == 0)
             {
-                node.Count++;
+                node.IncrementCount();
                 return node;
             }
             // item goes to left
             else if (result > 0)
             {
-                node.Left = Insert(node.Left, i);
+                node.SetLeft(Insert(node.GetLeft(), i));
             }
             // item goes to right
             else
             {
-                node.Right = Insert(node.Right, i);
+                node.SetRight(Insert(node.GetRight(), i));
             }
 
             return node;
@@ -80,18 +83,18 @@ namespace TextAnalyser.BinarySearchTree
         /// <summary>
         /// Traverse the Tree in order "In-Order" in a recursive way
         /// </summary>
-        private void InOrderTraversal(BinarySearchNode node)
+        private void InOrderTraversal(INode<T> node)
         {
             if (node != null)
             {
                 // Visit Left
-                InOrderTraversal(node.Left);
+                InOrderTraversal(node.GetLeft());
 
                 // Then Current
                 report.Add(node);
 
                 // Then Right
-                InOrderTraversal(node.Right);
+                InOrderTraversal(node.GetRight());
             }
         }
     }
